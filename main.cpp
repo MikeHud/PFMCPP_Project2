@@ -16,10 +16,13 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
- 
- 
- 
- 
+ int
+ float
+ char 
+ bool
+ double 
+ Unsigned int 
+ string //what about this one? 
  
  
  
@@ -59,10 +62,27 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
-    
+    int value = 1;
+    int param = 9;
 
-    
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    float size = 0.3f;
+    float volume = 0.22222f;
+    float length = 0.27981f;
+
+    bool toggleSwitch = 0;
+    bool pressButton = 1;
+    bool touchSense = 1;
+
+    double preciseValue = 0.445555;
+    double accurateData = 0.3432552;
+    double serialData = 0.00235252;
+
+    unsigned int positiveValue = 3;
+    unsigned int positiveNum = 2;
+    unsigned int count = 1;
+
+
+    ignoreUnused(number, value, param, size, volume, length, toggleSwitch, pressButton, touchSense, preciseValue, accurateData, serialData, positiveValue,positiveNum, count); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -70,7 +90,8 @@ void variableDeclarations()
  example:
  note: this example shows the result after completing steps 3-8
  */
-bool rentACar(int rentalDuration, int carType = 0)  //function declaration with random number of arguments, arbitrary number of arguments have default value
+
+bool rentACar(int rentalDuration = 0, int carType = 0)  //function declaration with random number of arguments, arbitrary number of arguments have default value
 { 
     ignoreUnused(rentalDuration, carType); //passing each function parameter to the ignoreUnused() function
     return {}; //if your function returns something other than void, add 'return {};' at the end of it.
@@ -79,42 +100,91 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+void soundOsc (int waveType = 1, double amplitude = 0.1) 
+{
+    ignoreUnused(waveType, amplitude);
 
+}
 /*
  2)
  */
+double sumLR (double leftCh = 0, double rightCh = 0)
+{
+    ignoreUnused(leftCh, rightCh);
+    return{};
+}
 
 /*
  3)
  */
+int waveType (int waveSelSw = 0) 
+{
+    ignoreUnused(waveSelSw);
+    return{};
+}
 
 /*
  4)
  */
+double amplitudeEnv (double ampEnv = 0.1, double oscMixerOut = 0)
+{
+    ignoreUnused(ampEnv, oscMixerOut);
+    return{};
+}
 
 /*
  5)
  */
+bool selectParam (bool switchOne = 0, bool switchTwo = 0)
+{
+    ignoreUnused(switchOne, switchTwo);
+    return{};
+} 
 
 /*
  6)
  */
+float displaySelectedOscType (bool switchOne = 0, int encoderSel = 0)
+{
+    ignoreUnused(switchOne, encoderSel);
+    return{};
+}
 
 /*
  7)
  */
+bool isSomethingConnected (bool inputOneSwitch = 0, bool inputTwoSwitch = 0)
+{
+    ignoreUnused(inputOneSwitch, inputTwoSwitch);
+    return{};
+}
 
 /*
  8)
  */
+int checkBatteryStatus (int batteryTemp = 0, int batteryCharge = 0, bool batteryCharging = 0)
+{
+    ignoreUnused(batteryTemp, batteryCharge, batteryCharging);
+    return{};
+}
 
 /*
  9)
  */
+int detectInputType (float inputImpedance = 0, double inputAmplitue = 0.1)
+{
+    ignoreUnused(inputImpedance, inputAmplitue);
+    return {};
+}
 
 /*
  10)
  */
+int activateArp (bool isMidiInconnected = 0, int arpSelType = 0)
+{
+    ignoreUnused(isMidiInconnected, arpSelType);
+    return {};
+}
 
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
@@ -136,27 +206,36 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    soundOsc(1,0);
+
     //2)
-    
+    auto sumChannels = sumLR(0,0);
+
     //3)
-    
+    auto wave = waveType(0);
+
     //4)
-    
+    auto envelopeOut = amplitudeEnv(0,0);
+
     //5)
+    auto userSelection = selectParam(2,0);
     
     //6)
-    
+    auto userDisplay = displaySelectedOscType(0,0);
+
     //7)
-    
+    auto connectionStatus = isSomethingConnected(0,0);
+
     //8)
+    auto batteryInfo = checkBatteryStatus(0,0,1);
     
     //9)
+    auto inputPreAmp = detectInputType(0,0);
     
     //10)
+    auto arp = activateArp(0,0);
     
-    
-    ignoreUnused(carRented);
+    ignoreUnused(carRented, sumChannels, wave, envelopeOut, userSelection, userDisplay, connectionStatus, batteryInfo, inputPreAmp, arp);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
