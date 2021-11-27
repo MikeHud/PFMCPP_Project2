@@ -69,9 +69,9 @@ void variableDeclarations()
     float volume = 0.22222f;
     float length = 0.27981f;
 
-    bool toggleSwitch = 0;
-    bool pressButton = 1;
-    bool touchSense = 1;
+    bool toggleSwitch = false;
+    bool pressButton = true;
+    bool touchSense = true;
 
     double preciseValue = 0.445555;
     double accurateData = 0.3432552;
@@ -135,7 +135,7 @@ double amplitudeEnv (double ampEnv = 0.1, double oscMixerOut = 0)
 /*
  5)
  */
-bool selectParam (bool switchOne = 0, bool switchTwo = 0)
+bool selectParam (bool switchOne = false, bool switchTwo = false)
 {
     ignoreUnused(switchOne, switchTwo);
     return{};
@@ -144,7 +144,7 @@ bool selectParam (bool switchOne = 0, bool switchTwo = 0)
 /*
  6)
  */
-float displaySelectedOscType (bool switchOne = 0, int encoderSel = 0)
+float displaySelectedOscType (bool switchOne = false, int encoderSel = 0)
 {
     ignoreUnused(switchOne, encoderSel);
     return{};
@@ -153,7 +153,7 @@ float displaySelectedOscType (bool switchOne = 0, int encoderSel = 0)
 /*
  7)
  */
-bool isSomethingConnected (bool inputOneSwitch = 0, bool inputTwoSwitch = 0)
+bool isSomethingConnected (bool inputOneSwitch = false, bool inputTwoSwitch = false)
 {
     ignoreUnused(inputOneSwitch, inputTwoSwitch);
     return{};
@@ -209,31 +209,31 @@ int main()
     soundOsc(1,0);
 
     //2)
-    auto sumChannels = sumLR(0,0);
+    auto sumChannels = sumLR(0, 0);
 
     //3)
     auto wave = waveType(0);
 
     //4)
-    auto envelopeOut = amplitudeEnv(0,0);
+    auto envelopeOut = amplitudeEnv(0, 0);
 
     //5)
-    auto userSelection = selectParam(2,0);
+    auto userSelection = selectParam(2, 0);
     
     //6)
-    auto userDisplay = displaySelectedOscType(0,0);
+    auto userDisplay = displaySelectedOscType(0, 0);
 
     //7)
-    auto connectionStatus = isSomethingConnected(0,0);
+    auto connectionStatus = isSomethingConnected(0, 0);
 
     //8)
-    auto batteryInfo = checkBatteryStatus(0,0,1);
+    auto batteryInfo = checkBatteryStatus(0, 0, 1);
     
     //9)
-    auto inputPreAmp = detectInputType(0,0);
+    auto inputPreAmp = detectInputType(0, 0);
     
     //10)
-    auto arp = activateArp(0,0);
+    auto arp = activateArp(0, 0);
     
     ignoreUnused(carRented, sumChannels, wave, envelopeOut, userSelection, userDisplay, connectionStatus, batteryInfo, inputPreAmp, arp);
     std::cout << "good to go!" << std::endl;
