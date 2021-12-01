@@ -206,11 +206,10 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    soundOsc(1,0);
+    soundOsc(1, 0);
 
     //2)
     auto sumChannels = sumLR(0, 0);
-
     //3)
     auto wave = waveType(0);
 
@@ -233,7 +232,7 @@ int main()
     auto inputPreAmp = detectInputType(0, 0);
     
     //10)
-    auto arp = activateArp(0, 0);
+    auto arp = activateArp(false, 0);
     
     ignoreUnused(carRented, sumChannels, wave, envelopeOut, userSelection, userDisplay, connectionStatus, batteryInfo, inputPreAmp, arp);
     std::cout << "good to go!" << std::endl;
