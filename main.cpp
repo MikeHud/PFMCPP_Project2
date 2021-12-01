@@ -162,7 +162,7 @@ bool isSomethingConnected (bool inputOneSwitch = false, bool inputTwoSwitch = fa
 /*
  8)
  */
-int checkBatteryStatus (int batteryTemp = 0, int batteryCharge = 0, bool batteryCharging = 0)
+int checkBatteryStatus (int batteryTemp = 0, int batteryCharge = 0, bool batteryCharging = true)
 {
     ignoreUnused(batteryTemp, batteryCharge, batteryCharging);
     return{};
@@ -180,7 +180,7 @@ int detectInputType (float inputImpedance = 0, double inputAmplitue = 0.1)
 /*
  10)
  */
-int activateArp (bool isMidiInconnected = 0, int arpSelType = 0)
+int activateArp (bool isMidiInconnected = , int arpSelType = 0)
 {
     ignoreUnused(isMidiInconnected, arpSelType);
     return {};
@@ -218,16 +218,16 @@ int main()
     auto envelopeOut = amplitudeEnv(0, 0);
 
     //5)
-    auto userSelection = selectParam(2, 0);
+    auto userSelection = selectParam(false, false);
     
     //6)
-    auto userDisplay = displaySelectedOscType(0, 0);
+    auto userDisplay = displaySelectedOscType(false, 0);
 
     //7)
-    auto connectionStatus = isSomethingConnected(0, 0);
+    auto connectionStatus = isSomethingConnected(false, false);
 
     //8)
-    auto batteryInfo = checkBatteryStatus(0, 0, 1);
+    auto batteryInfo = checkBatteryStatus(0, 0, false);
     
     //9)
     auto inputPreAmp = detectInputType(0, 0);
